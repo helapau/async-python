@@ -1,3 +1,6 @@
 colorama
 bs4
 requests
+aiohttp
+aiodns
+cchardet

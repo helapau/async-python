@@ -1,5 +1,5 @@
 import asyncio
-import datetime
+import time
 
 import requests
 import bs4
@@ -37,7 +37,7 @@ async def get_html(episode_number: int, queue: asyncio.Queue):
 async def main():
     queue = asyncio.Queue()
     producer_tasks = []
-    for n in range(20, 30):
+    for n in range(375, 385):
         producer_tasks.append(asyncio.create_task(get_html(n, queue)))
 
     consumer_task = asyncio.create_task(get_title(queue, 10))
@@ -47,7 +47,7 @@ async def main():
     return
 
 
-
-
 if __name__ == "__main__":
+    started = time.perf_counter()
     asyncio.run(main())
+    print(f"Done in {time.perf_counter() - started}")
