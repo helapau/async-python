@@ -51,7 +51,7 @@ def main():
 
     t0 = dt.datetime.now()
     print(colorama.Fore.WHITE + "App started.", flush=True)
-    data = asyncio.Queue()
+    data = asyncio.Queue() 
     # like a generator function, it doesn't actually run until you start it
     task1 = loop.create_task(generate_data(20, data))
     task12 = loop.create_task(generate_data(20, data))
